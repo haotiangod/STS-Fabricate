@@ -253,11 +253,11 @@ public abstract class PSkill<T extends PField> implements TooltipProvider {
     }
 
     public static List<String> getEffectDisplayTexts(Collection<? extends PSkill<?>> effects, PCLCardTarget perspective, Object requestor, boolean addPeriod) {
-        return EUIUtils.mapAsNonnull(effects, e -> e.getTextForDisplay(perspective, requestor, addPeriod));
+        return EUIUtils.mapAsNonnull(effects, e -> e != null ? e.getTextForDisplay(perspective, requestor, addPeriod) : null);
     }
 
     public static List<String> getEffectTexts(Collection<? extends PSkill<?>> effects, PCLCardTarget perspective, Object requestor, boolean addPeriod) {
-        return EUIUtils.mapAsNonnull(effects, e -> e.getText(perspective, requestor, addPeriod));
+        return EUIUtils.mapAsNonnull(effects, e -> e != null ? e.getText(perspective, requestor, addPeriod) : null);
     }
 
     public static List<String> getEffectTextsWithoutPeriod(Collection<? extends PSkill<?>> effects, PCLCardTarget perspective, Object requestor, boolean capitalize) {
